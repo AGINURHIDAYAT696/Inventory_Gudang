@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Barang_Keluar;
+use App\Models\BarangKeluar;
 use App\Models\Barang;
 use Illuminate\Http\Request;
 
@@ -10,7 +10,7 @@ class BarangKeluarController extends Controller
 {
     public function index()
     {
-        $data = Barang_Keluar::with('barang')->get();
+        $data = BarangKeluar::with('barang')->get();
         return response()->json($data);
     }
 
@@ -23,7 +23,7 @@ class BarangKeluarController extends Controller
             'jumlah' => 'required|integer|min:1'
         ]);
 
-        $keluar = Barang_Keluar::create($request->all());
+        $keluar = BarangKeluar::create($request->all());
 
         return response()->json([
             'message' => 'Transaksi keluar berhasil ditambahkan',
@@ -33,7 +33,7 @@ class BarangKeluarController extends Controller
 
     public function show($id)
     {
-        $keluar = Barang_Keluar::with('barang')->find($id);
+        $keluar = BarangKeluar::with('barang')->find($id);
         if (!$keluar) {
             return response()->json(['message' => 'Data tidak ditemukan'], 404);
         }
@@ -43,7 +43,7 @@ class BarangKeluarController extends Controller
 
     public function destroy($id)
     {
-        $keluar = Barang_Keluar::find($id);
+        $keluar = BarangKeluar::find($id);
         if (!$keluar) {
             return response()->json(['message' => 'Data tidak ditemukan'], 404);
         }

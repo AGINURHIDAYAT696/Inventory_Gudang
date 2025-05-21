@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Barang_Masuk;
+use App\Models\BarangMasuk;
 use App\Models\Barang;
 use Illuminate\Http\Request;
 
@@ -10,7 +10,7 @@ class BarangMasukController extends Controller
 {
     public function index()
     {
-        $data = Barang_Masuk::with('barang')->get();
+        $data = BarangMasuk::with('barang')->get();
         return response()->json($data);
     }
 
@@ -23,7 +23,7 @@ class BarangMasukController extends Controller
             'jumlah' => 'required|integer|min:1'
         ]);
 
-        $masuk = Barang_Masuk::create($request->all());
+        $masuk = BarangMasuk::create($request->all());
 
         return response()->json([
             'message' => 'Transaksi masuk berhasil ditambahkan',
@@ -33,7 +33,7 @@ class BarangMasukController extends Controller
 
     public function show($id)
     {
-        $masuk = Barang_Masuk::with('barang')->find($id);
+        $masuk = BarangMasuk::with('barang')->find($id);
         if (!$masuk) {
             return response()->json(['message' => 'Data tidak ditemukan'], 404);
         }
@@ -43,7 +43,7 @@ class BarangMasukController extends Controller
 
     public function destroy($id)
     {
-        $masuk = Barang_Masuk::find($id);
+        $masuk = BarangMasuk::find($id);
         if (!$masuk) {
             return response()->json(['message' => 'Data tidak ditemukan'], 404);
         }
