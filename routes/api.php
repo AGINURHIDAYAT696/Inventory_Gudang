@@ -9,6 +9,7 @@ use App\Http\Controllers\Api\SatuanController;
 use App\Http\Controllers\Api\BarangController;
 use App\Http\Controllers\Api\BarangMasukController;
 use App\Http\Controllers\Api\BarangKeluarController;
+use App\Http\Controllers\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,3 +36,16 @@ Route::apiResource('barang-masuk', BarangMasukController::class);
 
 // Barang Keluar
 Route::apiResource('barang-keluar', BarangKeluarController::class);
+
+//frontend
+Route::get('/', function () {
+    return redirect('/barang');
+});
+
+Route::get('/barang', function () {
+    $barang = App\Models\Barang::with(['jenis_relation', 'satuan_relation'])->get();
+    return view('barang.index', compact('barang'));
+});
+
+Route::get('/barang', [BarangController::class, 'index']);
+Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
