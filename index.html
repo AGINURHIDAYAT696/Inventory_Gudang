@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="Aplikasi Inventory Barang" />
+
+  <!-- Title -->
+  <title>Aplikasi Inventory Barang</title>
+
+  <!-- Favicon icon -->
+  <link rel="icon" href="assets/img/favicon.png" type="image/x-icon" />
+
+  <!-- Fonts and icons -->
+  <script src="assets/js/plugin/webfont/webfont.min.js"></script>
+  <script>
+    WebFont.load({
+      google: {
+        "families": ["Lato:300,400,700,900"]
+      },
+      custom: {
+        "families": ["Flaticon", "Font Awesome 5 Solid", "Font Awesome 5 Regular", "Font Awesome 5 Brands", "simple-line-icons"],
+        urls: ['assets/css/fonts.min.css']
+      },
+      active: function () {
+        sessionStorage.fonts = true;
+      }
+    });
+  </script>
+
+  <!-- Datepicker CSS -->
+  <link rel="stylesheet" href="assets/js/plugin/datepicker/css/bootstrap-datepicker.css">
+  <!-- Chosen CSS -->
+  <link rel="stylesheet" href="assets/js/plugin/chosen/css/chosen.css">
+
+  <!-- CSS Files -->
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/atlantis.min.css">
+
+  <!-- jQuery Core -->
+  <script src="assets/js/core/jquery.3.2.1.min.js"></script>
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="main-header">
+      <!-- Logo Header -->
+      <div class="logo-header" data-background-color="dark2">
+        <!-- Logo Brand -->
+        <a href="index.html" class="logo">
+          <div class="navbar-brand">
+
+            <span class="text-white">Inventory Barang</span>
+          </div>
+        </a>
+        <!-- Navbar Toggler -->
+        <button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse"
+          data-target="collapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon">
+            <i class="icon-menu"></i>
+          </span>
+        </button>
+        <button class="topbar-toggler more"><i class="icon-options-vertical"></i></button>
+        <div class="nav-toggle">
+          <button class="btn btn-toggle toggle-sidebar">
+            <i class="icon-menu"></i>
+          </button>
+        </div>
+      </div>
+      <!-- End Logo Header -->
+
+      <!-- Navbar Header -->
+      <nav class="navbar navbar-header navbar-expand-lg" data-background-color="dark2">
+        <div class="container-fluid">
+          <ul class="navbar-nav topbar-nav ml-md-auto align-items-center">
+            <!-- data user login -->
+            <li class="nav-item dropdown hidden-caret">
+              <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="javascript:void(0)"
+                aria-expanded="false">
+                <div class="avatar-sm-top mt-1">
+                  <img src="assets/img/avatar-1.png" alt="image profile" class="avatar-img rounded-circle">
+                  <i class="fas fa-angle-down avatar-title"></i>
+                </div>
+              </a>
+              <ul class="dropdown-menu dropdown-user animated fadeIn">
+                <li>
+                  <div class="user-box">
+                    <div class="avatar-lg"><img src="assets/img/avatar-2.png" alt="image profile"
+                        class="avatar-img rounded"></div>
+                    <div class="u-text pt-1">
+                      <h4>User</h4>
+                      <p class="text-muted">Administrator</p>
+                    </div>
+                  </div>
+                </li>
+                <!-- menu user -->
+                <li>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="?module=form_ubah_password">
+                    <i class="fas fa-user-lock mr-1"></i> Ubah Password
+                  </a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="#" data-toggle="modal" data-target="#modalLogout">
+                    <i class="fas fa-sign-out-alt mr-1"></i> Logout
+                  </a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <!-- End Navbar -->
+    </div>
+
+    <!-- Sidebar -->
+    <div class="sidebar sidebar-style-2">
+      <div class="sidebar-wrapper scrollbar scrollbar-inner">
+        <div class="sidebar-content">
+          <!-- data user login -->
+          <div class="user">
+            <div class="avatar-sm float-left mr-2">
+              <img src="assets/img/avatar-2.png" alt="image profile" class="avatar-img rounded-circle">
+            </div>
+            <div class="info">
+              <a>
+                <span>
+                  User
+                  <span class="user-level">Administrator</span>
+                </span>
+              </a>
+            </div>
+          </div>
+          <!-- Sidebar Menu -->
+          <ul class="nav nav-secondary">
+            <li class="nav-section">
+              <span class="sidebar-mini-icon">
+                <i class="fa fa-ellipsis-h"></i>
+              </span>
+              <h4 class="text-section">Master</h4>
+            </li>
+            <li class="nav-item active">
+              <a href="index.html">
+                <i class="fas fa-home"></i>
+                <p>Dashboard</p>
+              </a>
+            </li>
+
+            <li class="nav-item submenu">
+              <a data-toggle="collapse" href="#barang">
+                <i class="fas fa-clone"></i>
+                <p>Barang</p>
+                <span class="caret"></span>
+              </a>
+
+              <div class="collapse" id="barang">
+                <ul class="nav nav-collapse">
+                  <li>
+                    <a href="data-barang.html">
+                      <span class="sub-item">Data Barang</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="jenis-barang.html">
+                      <span class="sub-item">Jenis Barang</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="satuan.html">
+                      <span class="sub-item">Satuan</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="nav-section">
+              <span class="sidebar-mini-icon">
+                <i class="fa fa-ellipsis-h"></i>
+              </span>
+              <h4 class="text-section">Transaksi</h4>
+            </li>
+
+            <li class="nav-item">
+              <a href="?module=barang_masuk">
+                <i class="fas fa-sign-in-alt"></i>
+                <p>Barang Masuk</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="?module=barang_keluar">
+                <i class="fas fa-sign-out-alt"></i>
+                <p>Barang Keluar</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="?module=barang_keluar">
+                <i class="fas fa-sign-out-alt"></i>
+                <p>Barang Keluar</p>
+              </a>
+            </li>
+            <li class="nav-section">
+              <span class="sidebar-mini-icon">
+                <i class="fa fa-ellipsis-h"></i>
+              </span>
+              <h4 class="text-section">Laporan</h4>
+            </li>
+
+            <li class="nav-item">
+              <a href="?module=laporan_stok">
+                <i class="fas fa-file-signature"></i>
+                <p>Laporan Stok</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="?module=laporan_barang_masuk">
+                <i class="fas fa-file-import"></i>
+                <p>Laporan Barang Masuk</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="?module=laporan_barang_keluar">
+                <i class="fas fa-file-export"></i>
+                <p>Laporan Barang Keluar</p>
+              </a>
+            </li>
+            <li class="nav-section">
+              <span class="sidebar-mini-icon">
+                <i class="fa fa-ellipsis-h"></i>
+              </span>
+              <h4 class="text-section">Pengaturan</h4>
+            </li>
+
+            <li class="nav-item">
+              <a href="?module=user">
+                <i class="fas fa-user"></i>
+                <p>Manajemen User</p>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!-- End Sidebar -->
+
+    <div class="main-panel">
+      <!-- Main Content -->
+      <div class="content">
+
+        <!-- panggil file "content.php" untuk menampilkan halaman konten -->
+        <div class="panel-header bg-dark-gradient">
+          <div class="page-inner py-5">
+            <div class="d-flex align-items-left align-items-md-top flex-column flex-md-row">
+              <div class="page-header text-white">
+                <!-- judul halaman -->
+                <h4 class="page-title text-white"><i class="fas fa-home mr-2"></i> Dashboard</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="page-inner mt--5">
+          <div class="row row-card-no-pd mt--2">
+            <!-- menampilkan informasi jumlah data barang -->
+            <div class="col-sm-12 col-md-4">
+              <div class="card card-stats card-round">
+                <div class="card-body ">
+                  <div class="row">
+                    <div class="col-5">
+                      <div class="icon-big2 text-center">
+                        <i class="flaticon-box-2 text-secondary"></i>
+                      </div>
+                    </div>
+                    <div class="col-7 col-stats">
+                      <div class="numbers">
+                        <p class="card-category">Data Barang</p>
+                        <!-- tampilkan data -->
+                        <h4 class="card-title">10</h4>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- menampilkan informasi jumlah data barang masuk -->
+            <div class="col-sm-12 col-md-4">
+              <div class="card card-stats card-round">
+                <div class="card-body ">
+                  <div class="row">
+                    <div class="col-5">
+                      <div class="icon-big2 text-center">
+                        <i class="flaticon-inbox text-success"></i>
+                      </div>
+                    </div>
+                    <div class="col-7 col-stats">
+                      <div class="numbers">
+                        <p class="card-category">Data Barang Masuk</p>
+                        <!-- tampilkan data -->
+                        <h4 class="card-title">15</h4>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- menampilkan informasi jumlah data barang keluar -->
+            <div class="col-sm-12 col-md-4">
+              <div class="card card-stats card-round">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-5">
+                      <div class="icon-big2 text-center">
+                        <i class="flaticon-archive text-warning"></i>
+                      </div>
+                    </div>
+                    <div class="col-7 col-stats">
+                      <div class="numbers">
+                        <p class="card-category">Data Barang Keluar</p>
+                        <!-- tampilkan data -->
+                        <h4 class="card-title">20</h4>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- tampilkan informasi jumlah data jenis barang, satuan, dan user -->
+          <div class="row">
+            <!-- menampilkan informasi jumlah data jenis barang -->
+            <div class="col-sm-12 col-md-4">
+              <div class="card card-stats card-round">
+                <div class="card-body ">
+                  <div class="row align-items-center">
+                    <div class="col-icon">
+                      <div class="icon-big text-center icon-warning bubble-shadow-small">
+                        <i class="fas fa-clone"></i>
+                      </div>
+                    </div>
+                    <div class="col col-stats ml-3 ml-sm-0">
+                      <div class="numbers">
+                        <p class="card-category">Data Jenis Barang</p>
+                        <!-- tampilkan data -->
+                        <h4 class="card-title">5</h4>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- menampilkan informasi jumlah data satuan -->
+            <div class="col-sm-12 col-md-4">
+              <div class="card card-stats card-round">
+                <div class="card-body">
+                  <div class="row align-items-center">
+                    <div class="col-icon">
+                      <div class="icon-big text-center icon-info bubble-shadow-small">
+                        <i class="fas fa-folder-open"></i>
+                      </div>
+                    </div>
+                    <div class="col col-stats ml-3 ml-sm-0">
+                      <div class="numbers">
+                        <p class="card-category">Data Satuan</p>
+                        <!-- tampilkan data -->
+                        <h4 class="card-title">25</h4>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- menampilkan informasi jumlah data user -->
+            <div class="col-sm-12 col-md-4">
+              <div class="card card-stats card-round">
+                <div class="card-body">
+                  <div class="row align-items-center">
+                    <div class="col-icon">
+                      <div class="icon-big text-center icon-success bubble-shadow-small">
+                        <i class="fas fa-user-circle"></i>
+                      </div>
+                    </div>
+                    <div class="col col-stats ml-3 ml-sm-0">
+                      <div class="numbers">
+                        <p class="card-category">Data User</p>
+                        <!-- tampilkan data -->
+                        <h4 class="card-title">22</h4>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <hr class="mt-1 pb-2">
+
+          <!-- menampilkan informasi stok barang yang telah mencapai batas minimum -->
+          <div class="card">
+            <div class="card-header">
+              <!-- judul tabel -->
+              <div class="card-title"><i class="fas fa-info-circle mr-2"></i> Stok barang telah mencapai batas minimum
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <!-- tabel untuk menampilkan data dari database -->
+                <table id="basic-datatables" class="display table table-bordered table-striped table-hover">
+                  <thead>
+                    <tr>
+                      <th class="text-center">No.</th>
+                      <th class="text-center">ID Barang</th>
+                      <th class="text-center">Nama Barang</th>
+                      <th class="text-center">Jenis Barang</th>
+                      <th class="text-center">Stok</th>
+                      <th class="text-center">Satuan</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <!-- tampilkan data -->
+                    <tr>
+                      <td width="50" class="text-center">1</td>
+                      <td width="80" class="text-center">BRG001</td>
+                      <td width="200">Kertas HVS A4</td>
+                      <td width="150">ATK</td>
+                      <td width="70" class="text-right"><span class="badge badge-warning">10</span></td>
+                      <td width="70">Rim</td>
+                    </tr>
+                    <tr>
+                      <td width="50" class="text-center">2</td>
+                      <td width="80" class="text-center">BRG002</td>
+                      <td width="200">Pulpen Pilot</td>
+                      <td width="150">ATK</td>
+                      <td width="70" class="text-right"><span class="badge badge-warning">15</span></td>
+                      <td width="70">Lusin</td>
+                    </tr>
+                    <tr>
+                      <td width="50" class="text-center">3</td>
+                      <td width="80" class="text-center">BRG003</td>
+                      <td width="200">Tinta Printer</td>
+                      <td width="150">Elektronik</td>
+                      <td width="70" class="text-right"><span class="badge badge-warning">5</span></td>
+                      <td width="70">Botol</td>
+                    </tr>
+                    <tr>
+                      <td width="50" class="text-center">4</td>
+                      <td width="80" class="text-center">BRG004</td>
+                      <td width="200">Map Plastik</td>
+                      <td width="150">ATK</td>
+                      <td width="70" class="text-right"><span class="badge badge-warning">20</span></td>
+                      <td width="70">Pack</td>
+                    </tr>
+                    <tr>
+                      <td width="50" class="text-center">5</td>
+                      <td width="80" class="text-center">BRG005</td>
+                      <td width="200">Stapler</td>
+                      <td width="150">ATK</td>
+                      <td width="70" class="text-right"><span class="badge badge-warning">8</span></td>
+                      <td width="70">Pcs</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!-- End Main Content -->
+
+      <!-- Footer -->
+      <footer class="footer">
+        <div class="container-fluid">
+          <div class="copyright ml-auto">
+            Copyright &copy; 2025 - <a href="#" class="text-secondary">Layanan Web</a>.
+          </div>
+        </div>
+      </footer>
+      <!-- End Footer -->
+    </div>
+  </div>
+
+  <!-- Modal Logout -->
+  <div class="modal fade" id="modalLogout" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel"><i class="fas fa-sign-out-alt mr-2"></i>Logout</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">Apakah Anda yakin ingin logout?</div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default btn-round" data-dismiss="modal">Batal</button>
+          <a href="#" class="btn btn-danger btn-round">Ya, Logout</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Core JS Files -->
+  <script src="assets/js/core/popper.min.js"></script>
+  <script src="assets/js/core/bootstrap.min.js"></script>
+
+  <!-- jQuery UI -->
+  <script src="assets/js/plugin/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
+  <script src="assets/js/plugin/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js"></script>
+
+  <!-- jQuery Scrollbar -->
+  <script src="assets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>
+  <!-- Datatables -->
+  <script src="assets/js/plugin/datatables/datatables.min.js"></script>
+  <!-- Datepicker JS -->
+  <script src="assets/js/plugin/datepicker/js/bootstrap-datepicker.min.js"></script>
+  <!-- Chosen JS -->
+  <script src="assets/js/plugin/chosen/js/chosen.jquery.js"></script>
+
+  <!-- Atlantis JS -->
+  <script src="assets/js/atlantis.min.js"></script>
+
+  <!-- Custom Scripts -->
+  <script src="assets/js/plugin.js"></script>
+  <script src="assets/js/form-validation.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="Aplikasi Inventory Barang" />
+
+    <!-- Title -->
+    <title>Aplikasi Inventory Barang</title>
+
+    <!-- Favicon icon -->
+    <link rel="icon" href="assets/img/favicon.png" type="image/x-icon" />
+
+    <!-- Fonts and icons -->
+    <script src="assets/js/plugin/webfont/webfont.min.js"></script>
+    <script>
+        WebFont.load({
+            google: {
+                "families": ["Lato:300,400,700,900"]
+            },
+            custom: {
+                "families": ["Flaticon", "Font Awesome 5 Solid", "Font Awesome 5 Regular", "Font Awesome 5 Brands", "simple-line-icons"],
+                urls: ['assets/css/fonts.min.css']
+            },
+            active: function () {
+                sessionStorage.fonts = true;
+            }
+        });
+    </script>
+
+    <!-- Datepicker CSS -->
+    <link rel="stylesheet" href="assets/js/plugin/datepicker/css/bootstrap-datepicker.css">
+    <!-- Chosen CSS -->
+    <link rel="stylesheet" href="assets/js/plugin/chosen/css/chosen.css">
+
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/atlantis.min.css">
+
+    <!-- jQuery Core -->
+    <script src="assets/js/core/jquery.3.2.1.min.js"></script>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="main-header">
+            <!-- Logo Header -->
+            <div class="logo-header" data-background-color="dark2">
+                <!-- Logo Brand -->
+                <a href="index.html" class="logo">
+                    <div class="navbar-brand">
+
+                        <span class="text-white">Inventory Barang</span>
+                    </div>
+                </a>
+                <!-- Navbar Toggler -->
+                <button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse"
+                    data-target="collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon">
+                        <i class="icon-menu"></i>
+                    </span>
+                </button>
+                <button class="topbar-toggler more"><i class="icon-options-vertical"></i></button>
+                <div class="nav-toggle">
+                    <button class="btn btn-toggle toggle-sidebar">
+                        <i class="icon-menu"></i>
+                    </button>
+                </div>
+            </div>
+            <!-- End Logo Header -->
+
+            <!-- Navbar Header -->
+            <nav class="navbar navbar-header navbar-expand-lg" data-background-color="dark2">
+                <div class="container-fluid">
+                    <ul class="navbar-nav topbar-nav ml-md-auto align-items-center">
+                        <!-- data user login -->
+                        <li class="nav-item dropdown hidden-caret">
+                            <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="javascript:void(0)"
+                                aria-expanded="false">
+                                <div class="avatar-sm-top mt-1">
+                                    <img src="assets/img/avatar-1.png" alt="image profile"
+                                        class="avatar-img rounded-circle">
+                                    <i class="fas fa-angle-down avatar-title"></i>
+                                </div>
+                            </a>
+                            <ul class="dropdown-menu dropdown-user animated fadeIn">
+                                <li>
+                                    <div class="user-box">
+                                        <div class="avatar-lg"><img src="assets/img/avatar-2.png" alt="image profile"
+                                                class="avatar-img rounded"></div>
+                                        <div class="u-text pt-1">
+                                            <h4>User</h4>
+                                            <p class="text-muted">Administrator</p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <!-- menu user -->
+                                <li>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="?module=form_ubah_password">
+                                        <i class="fas fa-user-lock mr-1"></i> Ubah Password
+                                    </a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#modalLogout">
+                                        <i class="fas fa-sign-out-alt mr-1"></i> Logout
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <!-- End Navbar -->
+        </div>
+
+        <!-- Sidebar -->
+        <div class="sidebar sidebar-style-2">
+            <div class="sidebar-wrapper scrollbar scrollbar-inner">
+                <div class="sidebar-content">
+                    <!-- data user login -->
+                    <div class="user">
+                        <div class="avatar-sm float-left mr-2">
+                            <img src="assets/img/avatar-2.png" alt="image profile" class="avatar-img rounded-circle">
+                        </div>
+                        <div class="info">
+                            <a>
+                                <span>
+                                    User
+                                    <span class="user-level">Administrator</span>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Sidebar Menu -->
+                    <ul class="nav nav-secondary">
+                        <li class="nav-section">
+                            <span class="sidebar-mini-icon">
+                                <i class="fa fa-ellipsis-h"></i>
+                            </span>
+                            <h4 class="text-section">Master</h4>
+                        </li>
+                        <li class="nav-item">
+                            <a href="index.html">
+                                <i class="fas fa-home"></i>
+                                <p>Dashboard</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item submenu">
+                            <a data-toggle="collapse" href="#barang">
+                                <i class="fas fa-clone"></i>
+                                <p>Barang</p>
+                                <span class="caret"></span>
+                            </a>
+
+                            <div class="collapse show" id="barang">
+                                <ul class="nav nav-collapse">
+                                    <li>
+                                        <a href="data-barang.html">
+                                            <span class="sub-item">Data Barang</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="jenis-barang.html">
+                                            <span class="sub-item">Jenis Barang</span>
+                                        </a>
+                                    </li>
+                                    <li class="active">
+                                        <a href="satuan.html">
+                                            <span class="sub-item">Satuan</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="nav-section">
+                            <span class="sidebar-mini-icon">
+                                <i class="fa fa-ellipsis-h"></i>
+                            </span>
+                            <h4 class="text-section">Transaksi</h4>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="?module=barang_masuk">
+                                <i class="fas fa-sign-in-alt"></i>
+                                <p>Barang Masuk</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="?module=barang_keluar">
+                                <i class="fas fa-sign-out-alt"></i>
+                                <p>Barang Keluar</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="?module=barang_keluar">
+                                <i class="fas fa-sign-out-alt"></i>
+                                <p>Barang Keluar</p>
+                            </a>
+                        </li>
+                        <li class="nav-section">
+                            <span class="sidebar-mini-icon">
+                                <i class="fa fa-ellipsis-h"></i>
+                            </span>
+                            <h4 class="text-section">Laporan</h4>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="?module=laporan_stok">
+                                <i class="fas fa-file-signature"></i>
+                                <p>Laporan Stok</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="?module=laporan_barang_masuk">
+                                <i class="fas fa-file-import"></i>
+                                <p>Laporan Barang Masuk</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="?module=laporan_barang_keluar">
+                                <i class="fas fa-file-export"></i>
+                                <p>Laporan Barang Keluar</p>
+                            </a>
+                        </li>
+                        <li class="nav-section">
+                            <span class="sidebar-mini-icon">
+                                <i class="fa fa-ellipsis-h"></i>
+                            </span>
+                            <h4 class="text-section">Pengaturan</h4>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="?module=user">
+                                <i class="fas fa-user"></i>
+                                <p>Manajemen User</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- End Sidebar -->
+
+        <div class="main-panel">
+            <!-- Main Content -->
+            <div class="content">
+
+                <!-- panggil file "content.php" untuk menampilkan halaman konten -->
+                <div class="panel-header bg-dark-gradient">
+                    <div class="page-inner py-45">
+                        <div class="d-flex align-items-left align-items-md-top flex-column flex-md-row">
+                            <div class="page-header text-white">
+                                <!-- judul halaman -->
+                                <h4 class="page-title text-white"><i class="fas fa-clone mr-2"></i> Satuan</h4>
+                                <!-- breadcrumbs -->
+                                <ul class="breadcrumbs">
+                                    <li class="nav-home"><a href="?module=dashboard"><i
+                                                class="flaticon-home text-white"></i></a></li>
+                                    <li class="separator"><i class="flaticon-right-arrow"></i></li>
+                                    <li class="nav-item"><a href="?module=satuan" class="text-white">Satuan</a></li>
+                                    <li class="separator"><i class="flaticon-right-arrow"></i></li>
+                                    <li class="nav-item"><a>Data</a></li>
+                                </ul>
+                            </div>
+                            <div class="ml-md-auto py-2 py-md-0">
+                                <!-- tombol entri data -->
+                                <a href="?module=form_entri_satuan" class="btn btn-secondary btn-round mr-2">
+                                    <span class="btn-label"><i class="fa fa-plus mr-2"></i></span> Tambah Data
+                                </a>
+                                <!-- tombol export data -->
+                                <a href="modules/satuan/export.php" class="btn btn-success btn-round">
+                                    <span class="btn-label"><i class="fa fa-file-excel mr-2"></i></span> Export
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="page-inner mt--5">
+                    <div class="card">
+                        <div class="card-header">
+                            <!-- judul tabel -->
+                            <div class="card-title">Data Satuan</div>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <!-- tabel untuk menampilkan data dari database -->
+                                <table id="basic-datatables"
+                                    class="display table table-bordered table-striped table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-center">No.</th>
+                                            <th class="text-center">Satuan</th>
+                                            <th class="text-center">Aksi</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td width="30" class="text-center">1</td>
+                                            <td width="300">Pcs</td>
+                                            <td width="70" class="text-center">
+                                                <div>
+                                                    <a href="?module=form_ubah_satuan&id=1"
+                                                        class="btn btn-icon btn-round btn-secondary btn-sm mr-md-1"
+                                                        data-toggle="tooltip" data-placement="top" title="Ubah">
+                                                        <i class="fas fa-pencil-alt fa-sm"></i>
+                                                    </a>
+                                                    <a href="modules/satuan/proses_hapus.php?id=1"
+                                                        onclick="return confirm('Anda yakin ingin menghapus data satuan Pcs?')"
+                                                        class="btn btn-icon btn-round btn-danger btn-sm"
+                                                        data-toggle="tooltip" data-placement="top" title="Hapus">
+                                                        <i class="fas fa-trash fa-sm"></i>
+                                                    </a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td width="30" class="text-center">2</td>
+                                            <td width="300">Pack</td>
+                                            <td width="70" class="text-center">
+                                                <div>
+                                                    <a href="?module=form_ubah_satuan&id=2"
+                                                        class="btn btn-icon btn-round btn-secondary btn-sm mr-md-1"
+                                                        data-toggle="tooltip" data-placement="top" title="Ubah">
+                                                        <i class="fas fa-pencil-alt fa-sm"></i>
+                                                    </a>
+                                                    <a href="modules/satuan/proses_hapus.php?id=2"
+                                                        onclick="return confirm('Anda yakin ingin menghapus data satuan Pack?')"
+                                                        class="btn btn-icon btn-round btn-danger btn-sm"
+                                                        data-toggle="tooltip" data-placement="top" title="Hapus">
+                                                        <i class="fas fa-trash fa-sm"></i>
+                                                    </a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td width="30" class="text-center">3</td>
+                                            <td width="300">Rim</td>
+                                            <td width="70" class="text-center">
+                                                <div>
+                                                    <a href="?module=form_ubah_satuan&id=3"
+                                                        class="btn btn-icon btn-round btn-secondary btn-sm mr-md-1"
+                                                        data-toggle="tooltip" data-placement="top" title="Ubah">
+                                                        <i class="fas fa-pencil-alt fa-sm"></i>
+                                                    </a>
+                                                    <a href="modules/satuan/proses_hapus.php?id=3"
+                                                        onclick="return confirm('Anda yakin ingin menghapus data satuan Rim?')"
+                                                        class="btn btn-icon btn-round btn-danger btn-sm"
+                                                        data-toggle="tooltip" data-placement="top" title="Hapus">
+                                                        <i class="fas fa-trash fa-sm"></i>
+                                                    </a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td width="30" class="text-center">4</td>
+                                            <td width="300">Lusin</td>
+                                            <td width="70" class="text-center">
+                                                <div>
+                                                    <a href="?module=form_ubah_satuan&id=4"
+                                                        class="btn btn-icon btn-round btn-secondary btn-sm mr-md-1"
+                                                        data-toggle="tooltip" data-placement="top" title="Ubah">
+                                                        <i class="fas fa-pencil-alt fa-sm"></i>
+                                                    </a>
+                                                    <a href="modules/satuan/proses_hapus.php?id=4"
+                                                        onclick="return confirm('Anda yakin ingin menghapus data satuan Lusin?')"
+                                                        class="btn btn-icon btn-round btn-danger btn-sm"
+                                                        data-toggle="tooltip" data-placement="top" title="Hapus">
+                                                        <i class="fas fa-trash fa-sm"></i>
+                                                    </a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td width="30" class="text-center">5</td>
+                                            <td width="300">Box</td>
+                                            <td width="70" class="text-center">
+                                                <div>
+                                                    <a href="?module=form_ubah_satuan&id=5"
+                                                        class="btn btn-icon btn-round btn-secondary btn-sm mr-md-1"
+                                                        data-toggle="tooltip" data-placement="top" title="Ubah">
+                                                        <i class="fas fa-pencil-alt fa-sm"></i>
+                                                    </a>
+                                                    <a href="modules/satuan/proses_hapus.php?id=5"
+                                                        onclick="return confirm('Anda yakin ingin menghapus data satuan Box?')"
+                                                        class="btn btn-icon btn-round btn-danger btn-sm"
+                                                        data-toggle="tooltip" data-placement="top" title="Hapus">
+                                                        <i class="fas fa-trash fa-sm"></i>
+                                                    </a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- End Main Content -->
+
+            <!-- Footer -->
+            <footer class="footer">
+                <div class="container-fluid">
+                    <div class="copyright ml-auto">
+                        Copyright &copy; 2025 - <a href="#" class="text-secondary">Layanan Web</a>.
+                    </div>
+                </div>
+            </footer>
+            <!-- End Footer -->
+        </div>
+    </div>
+
+    <!-- Modal Logout -->
+    <div class="modal fade" id="modalLogout" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel"><i class="fas fa-sign-out-alt mr-2"></i>Logout</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Apakah Anda yakin ingin logout?</div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default btn-round" data-dismiss="modal">Batal</button>
+                    <a href="#" class="btn btn-danger btn-round">Ya, Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Core JS Files -->
+    <script src="assets/js/core/popper.min.js"></script>
+    <script src="assets/js/core/bootstrap.min.js"></script>
+
+    <!-- jQuery UI -->
+    <script src="assets/js/plugin/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
+    <script src="assets/js/plugin/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js"></script>
+
+    <!-- jQuery Scrollbar -->
+    <script src="assets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>
+    <!-- Datatables -->
+    <script src="assets/js/plugin/datatables/datatables.min.js"></script>
+    <!-- Datepicker JS -->
+    <script src="assets/js/plugin/datepicker/js/bootstrap-datepicker.min.js"></script>
+    <!-- Chosen JS -->
+    <script src="assets/js/plugin/chosen/js/chosen.jquery.js"></script>
+
+    <!-- Atlantis JS -->
+    <script src="assets/js/atlantis.min.js"></script>
+
+    <!-- Custom Scripts -->
+    <script src="assets/js/plugin.js"></script>
+    <script src="assets/js/form-validation.js"></script>
+</body>
+
+</html>
